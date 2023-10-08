@@ -15,9 +15,9 @@ export const Home = () => {
     <>
       <section
         id='home_product_container'
-        className='grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 w-full justify-items-center'
+        className='grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 w-full max-w-5xl justify-items-center'
       >
-        {products.map(product => (
+        {products?.map(product => (
           <Card
             key={product.id}
             category={product?.category?.name}
