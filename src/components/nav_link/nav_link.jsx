@@ -1,13 +1,16 @@
 import { Link, useRoute } from 'wouter';
 
-export const NavLink = ({ to, children }) => {
-  const [isActive] = useRoute(to);
+export const NavLink = ({ children, href, className, whenActive }) => {
+  const [isActive] = useRoute(href);
   return (
     <Link
-      href={to}
-      className={`
-        ${isActive && 'underline underline-offset-4 text-blue-600'}
-      `}>
+      href={href}
+      className={
+        `
+        ${isActive && whenActive}
+        ${className}
+        `
+      }>
       {children}
     </Link>
   );
