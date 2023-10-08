@@ -1,4 +1,13 @@
-export const Card = ({ category, title, price, image }) => {
+import { useContext } from 'react';
+import { ShoppingCartContext } from '../../context/';
+
+export const Card = ({ category, title, price, image, product }) => {
+  const { setCartProducts, cartProducts } = useContext(ShoppingCartContext);
+
+  const handleClick = () => {
+    setCartProducts([...cartProducts, product]);
+    console.log(cartProducts);
+  };
   return (
     <article className='bg-white cursor-pointer w-full h-64 rounded-xl overflow-hidden'>
       <figure className='relative mb-2 w-full h-4/5 overflow-hidden flex justify-center'>
@@ -11,7 +20,10 @@ export const Card = ({ category, title, price, image }) => {
           loading="lazy"
           alt={title}
         />
-        <div className='absolute top-2 right-2 grid place-content-center bg-gray-200 h-6 w-6 rounded-full'>
+        <div
+          className='absolute top-2 right-2 grid place-content-center bg-gray-200 h-6 w-6 rounded-full'
+          onClick={handleClick}
+        >
           +
         </div>
       </figure>

@@ -24,6 +24,7 @@ export const Home = () => {
             title={product?.title}
             price={product?.price}
             image={product.images[0]}
+            product={product}
           />
         ))}
       </section>
