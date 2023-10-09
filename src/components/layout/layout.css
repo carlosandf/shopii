@@ -1,0 +1,11 @@
+.Layout-main::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.Layout-main::-webkit-scrollbar:vertical {
+  width:7px;
+}
+.Layout-main::-webkit-scrollbar-thumb {
+  margin: 15px;
+  background-color: #9b9b9b5d;
+  border-radius: 20px;
+}
