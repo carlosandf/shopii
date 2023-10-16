@@ -1,0 +1,11 @@
+.Product-detail::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.Product-detail::-webkit-scrollbar:vertical {
+  width:5px;
+}
+.Product-detail::-webkit-scrollbar-thumb {
+  margin: 15px;
+  background-color: #9b9b9b5d;
+  border-radius: 20px;
+}

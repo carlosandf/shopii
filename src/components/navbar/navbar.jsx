@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { useContext } from 'react';
 import { NavLink } from '../';
 import { ShoppingCartContext } from '../../context';
+import { CartIcon } from '../icons';
 
 const linksLeft = [
   { path: '/', label: 'All' },
@@ -54,7 +55,7 @@ export const Navbar = () => {
         <li className='text-xl relative'>
           {
             cartProducts?.length > 0 && (
-              <span className='absolute bg-red-500 py-0.5 px-1 text-white text-xs font-bold rounded-full leading-none left-3 bottom-5'>
+              <span className='absolute bg-red-500 py-0.5 px-1 text-white text-xs font-bold rounded-full leading-none left-4 bottom-4'>
                 {cartProducts.length}
               </span>
             )
@@ -64,7 +65,7 @@ export const Navbar = () => {
             className='text-2xl'
             whenActive='text-blue-600'
           >
-            🛒
+            <CartIcon /> {/* 🛒 */}
           </NavLink>
         </li>
       </ul>
