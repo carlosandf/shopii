@@ -11,8 +11,8 @@ export const Layout = ({ children }) => {
       <header className='fixed z-20 w-full top-0 max-w-screen-2xl'>
         <Navbar />
       </header>
-      <main className='mt-16 grid gap-1 place-content-center grid-cols-[auto_auto_auto] items-center p-8'>
-        <div className='Layout-main col-[2/3] pt-3 rounded-s-lg'>
+      <main className='mt-16 relative grid h-[calc(100dvh-64px)] gap-1 place-content-center grid-cols-[auto_auto_auto] items-center p-8'>
+        <div className='Layout-main col-[2/3] pt-3 rounded-s-lg h-[inherit] overflow-y-scroll'>
           {children}
         </div>
         <div>
