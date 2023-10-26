@@ -7,7 +7,7 @@ export class ProductsApi {
 
       if (!res.ok) throw Error('Error inesperado');
 
-      const data = res.json();
+      const data = await res.json();
       return data;
     } catch (error) {
       console.log(error);

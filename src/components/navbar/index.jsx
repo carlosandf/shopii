@@ -1,6 +1,6 @@
 import { Link } from 'wouter';
 import { useContext } from 'react';
-import { NavLink } from '../';
+import { NavLink } from '..';
 import { ShoppingCartContext } from '../../context';
 import { CartIcon } from '../icons';
 

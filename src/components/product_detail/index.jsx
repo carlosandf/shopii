@@ -3,15 +3,15 @@ import { CloseIcon } from '../icons';
 import { ShoppingCartContext } from '../../context';
 import './product_detail.css';
 
-export const ProductDetail = () => {
-  const { closeProductDetail, productToShow } = useContext(ShoppingCartContext);
+export const ProductDetail = ({ productToShow }) => {
+  const { closeSidebar } = useContext(ShoppingCartContext);
 
   return (
-    <aside className="Product-detail flex flex-col overflow-hidden overflow-y-auto absolute top-0 right-0 z-50 drop-shadow-2xl bg-white rounded-lg max-w-xs w-screen h-[calc(100dvh-64px)]">
+    <aside className="Product-detail flex flex-col overflow-hidden overflow-y-auto bg-white rounded-lg max-w-xs w-screen max-h-[calc(100dvh-64px)]">
       <figure className='aspect-square relative'>
-        <span className='cursor-pointer absolute right-1 top-1 p-[1px] rounded-full bg-white/60' onClick={closeProductDetail}>
+        <button onClick={closeSidebar} className='absolute right-1 top-1 p-[1px] rounded-full bg-white/60'>
           <CloseIcon />
-        </span>
+        </button>
         <img src={productToShow.images[0]} alt={productToShow.title} />
       </figure>
       <section className='p-3'>

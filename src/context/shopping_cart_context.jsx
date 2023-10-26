@@ -1,46 +1,32 @@
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
+import { useShoppingCart } from '../hooks/';
+import { useSidebar } from '../hooks/useSidebar';
 
-const initialState = {
-  cartProducts: [],
-  productToShow: {
-    title: '',
-    price: '',
-    description: '',
-    images: []
-  },
-  isProductDetailOpen: false,
-  setCartProducts: () => {},
-  openProductDetail: () => {},
-  closeProductDetail: () => {}
-};
-export const ShoppingCartContext = createContext(initialState);
+export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
-  const [cartProducts, setCartProducts] = useState([]);
-  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
-  const [productToShow, setProductToShow] = useState({
-    title: '',
-    price: '',
-    description: '',
-    images: []
-  });
+  const { cartProducts, addToCart, removeToCart } = useShoppingCart();
 
-  const openProductDetail = ({ product }) => {
-    setProductToShow({ ...product });
-    setIsProductDetailOpen(true);
-  };
-  const closeProductDetail = () => setIsProductDetailOpen(false);
+  // Show sidebar
+  const {
+    isSidebarOpen,
+    sidebarChild,
+    openSidebar,
+    closeSidebar,
+    setSidebarChild
+  } = useSidebar();
 
   return (
     <ShoppingCartContext.Provider
       value={{
+        sidebarChild,
         cartProducts,
-        productToShow,
-        isProductDetailOpen,
-        setCartProducts,
-        openProductDetail,
-        closeProductDetail,
-        setProductToShow
+        isSidebarOpen,
+        addToCart,
+        setSidebarChild,
+        removeToCart,
+        closeSidebar,
+        openSidebar
       }}
     >
       {children}
