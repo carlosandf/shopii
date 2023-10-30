@@ -1,12 +1,13 @@
-export const OrderCard = ({ product }) => {
+export const OrderCard = ({ imageUrl, title, price, handleClick }) => {
   return (
-    <article className='grid grid-cols-[1fr_2fr] h-max overflow-hidden gap-2 shadow-md rounded'>
+    <article className='grid grid-cols-[2fr_4fr] h-max overflow-hidden shadow-md rounded'>
       <figure>
-        <img className='aspect-square' src={product.images[0]} alt={product.title} />
+        <img className='aspect-square h-full object-cover' src={imageUrl} alt={title} />
       </figure>
-      <section>
-        <span className='text-xl font-medium'>{product.title}</span>
-        <span className='text-2xl font-bold'>${''}{product.price}</span>
+      <section className='flex flex-col justify-between p-2'>
+        <p className='text-lg font-light'>{title}</p>
+        <span className='text-xl font-bold block'>${''}{price}</span>
+        <button onClick={handleClick} className='text-blue-600 w-fit self-end text-sm'>Eliminar</button>
       </section>
     </article>
   );

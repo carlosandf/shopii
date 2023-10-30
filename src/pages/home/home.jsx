@@ -20,10 +20,6 @@ export const Home = () => {
         {products?.map(product => (
           <Card
             key={product.id}
-            category={product?.category?.name}
-            title={product?.title}
-            price={product?.price}
-            image={product.images[0]}
             product={product}
           />
         ))}

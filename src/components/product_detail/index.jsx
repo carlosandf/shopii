@@ -7,7 +7,7 @@ export const ProductDetail = ({ productToShow }) => {
   const { closeSidebar } = useContext(ShoppingCartContext);
 
   return (
-    <aside className="Product-detail flex flex-col overflow-hidden overflow-y-auto bg-white rounded-lg max-w-xs w-screen max-h-[calc(100dvh-64px)]">
+    <aside className="Product-detail flex flex-col overflow-hidden overflow-y-auto bg-white max-w-xs w-screen max-h-[calc(100dvh-64px)]">
       <figure className='aspect-square relative'>
         <button onClick={closeSidebar} className='absolute right-1 top-1 p-[1px] rounded-full bg-white/60'>
           <CloseIcon />
