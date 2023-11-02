@@ -3,7 +3,7 @@ import { CloseIcon } from '../icons';
 import { ShoppingCartContext } from '../../context';
 import './product_detail.css';
 
-export const ProductDetail = ({ productToShow }) => {
+export const ProductDetail = ({ image, title, description, price }) => {
   const { closeSidebar } = useContext(ShoppingCartContext);
 
   return (
@@ -12,13 +12,13 @@ export const ProductDetail = ({ productToShow }) => {
         <button onClick={closeSidebar} className='absolute right-1 top-1 p-[1px] rounded-full bg-white/60'>
           <CloseIcon />
         </button>
-        <img src={productToShow.images[0]} alt={productToShow.title} />
+        <img className='aspect-square object-cover object-center' src={image} alt={title} />
       </figure>
       <section className='p-3'>
         <p className='flex flex-col gap-1'>
-          <span className='text-2xl font-bold'>${''}{productToShow.price}</span>
-          <span className='text-xl font-medium'>{productToShow.title}</span>
-          <span className='text-base font-light'>{productToShow.description}</span>
+          <span className='text-2xl font-bold'>${''}{price}</span>
+          <span className='text-xl font-medium'>{title}</span>
+          <span className='text-base font-light'>{description}</span>
         </p>
       </section>
     </aside>

@@ -2,10 +2,14 @@ import { useContext } from 'react';
 import { CloseIcon } from '../icons';
 import { ShoppingCartContext } from '../../context';
 import { OrderCard } from '../order_card';
+import { sumListNums } from '../../utils/sumListItems';
 import './checkout_side_menu.css';
 
 export const CheckoutSideMenu = () => {
   const { closeSidebar, cartProducts, removeToCart } = useContext(ShoppingCartContext);
+
+  const totalPrice = sumListNums(cartProducts.map(product => product.price));
+  console.log(totalPrice);
 
   return (
     <aside className="p-1 top-[100%] right-0 z-50 drop-shadow-2xl overflow-hidden bg-white max-w-sm w-screen max-h-[70dvh]">
@@ -18,11 +22,11 @@ export const CheckoutSideMenu = () => {
       <section className='Checkout_menu grid gap-1 auto-rows-max overflow-y-auto max-h-[calc(70dvh-50px)] min-h-[5rem]'>
         {cartProducts.length > 0
           ? (
-              cartProducts.map(({ images, title, id, price }) => (
+              cartProducts.map(({ image, title, id, price }) => (
                 <OrderCard
                   key={`order_card_${id}`}
                   handleClick={() => removeToCart({ id })}
-                  imageUrl={images[0]}
+                  image={image}
                   title={title}
                   price={price}
                 />
