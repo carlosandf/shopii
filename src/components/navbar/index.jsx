@@ -1,8 +1,7 @@
 import { Link } from 'wouter';
-import { useContext } from 'react';
 import { NavLink } from '..';
-import { ShoppingCartContext } from '../../context';
 import { CartIcon } from '../icons';
+import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 
 const linksLeft = [
   { path: '/', label: 'All' },
@@ -19,7 +18,7 @@ const linksRight = [
 ];
 
 export const Navbar = () => {
-  const { cartProducts } = useContext(ShoppingCartContext);
+  const { cartProducts } = useShoppingCartContext();
   return (
     <nav className='w-full flex h-16 items-center justify-between gap-2 px-6 py-3 text-sm bg-white font-medium shadow'>
       <ul className='flex gap-5 items-center'>

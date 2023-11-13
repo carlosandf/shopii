@@ -14,9 +14,12 @@ export function useShoppingCart () {
     setCartProducts(newArr);
   };
 
+  const clearShoppingCart = () => setCartProducts([]);
+
   return {
     cartProducts,
     addToCart,
-    removeToCart
+    removeToCart,
+    clearShoppingCart
   };
 }

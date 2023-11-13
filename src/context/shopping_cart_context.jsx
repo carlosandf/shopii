@@ -1,11 +1,13 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { useShoppingCart } from '../hooks/';
 import { useSidebar } from '../hooks/useSidebar';
 
 export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
-  const { cartProducts, addToCart, removeToCart } = useShoppingCart();
+  const { cartProducts, addToCart, removeToCart, clearShoppingCart } = useShoppingCart();
+
+  const [orders, setOrders] = useState([]);
 
   // Show sidebar
   const {
@@ -19,14 +21,17 @@ export const ShoppingCartProvider = ({ children }) => {
   return (
     <ShoppingCartContext.Provider
       value={{
+        orders,
         sidebarChild,
         cartProducts,
         isSidebarOpen,
         addToCart,
+        setOrders,
         setSidebarChild,
         removeToCart,
         closeSidebar,
-        openSidebar
+        openSidebar,
+        clearShoppingCart
       }}
     >
       {children}

@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import { ShoppingCartContext } from '../../context/shopping_cart_context';
+import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 
 export const Sidebar = () => {
-  const { isSidebarOpen, sidebarChild } = useContext(ShoppingCartContext);
+  const { isSidebarOpen, sidebarChild } = useShoppingCartContext();
 
   if (!isSidebarOpen) return null;
   return (

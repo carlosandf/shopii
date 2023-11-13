@@ -1,10 +1,9 @@
-import { useContext } from 'react';
 import { CloseIcon } from '../icons';
-import { ShoppingCartContext } from '../../context';
+import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 import './product_detail.css';
 
 export const ProductDetail = ({ image, title, description, price }) => {
-  const { closeSidebar } = useContext(ShoppingCartContext);
+  const { closeSidebar } = useShoppingCartContext();
 
   return (
     <aside className="Product-detail flex flex-col overflow-hidden overflow-y-auto bg-white max-w-xs w-screen max-h-[calc(100dvh-64px)]">

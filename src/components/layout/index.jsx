@@ -9,13 +9,13 @@ export const Layout = ({ children }) => {
         <Navbar />
         <Sidebar />
       </header>
-      <main className='mt-16 relative grid gap-1 min-h-screen place-content-center grid-cols-[auto_auto_auto] items-center p-8'>
-        <div className='Layout-main col-[2/3] pt-3 rounded-s-lg h-[inherit] overflow-y-scroll'>
+      <main className='mt-16 relative grid gap-1 min-h-screen grid-cols-[auto_auto_auto] items-start p-8'>
+        <div className='Layout-main col-[2/3] grid justify-items-center rounded-s-lg h-[inherit]'>
           {children}
         </div>
       </main>
       <footer className='h-[40dvh] bg-gray-300 grid place-content-center'>
-        Todos los izquierdos reservados
+        &copy; 2023 - Todos los izquierdos reservados
       </footer>
     </>
   );

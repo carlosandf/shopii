@@ -1,12 +1,11 @@
-import { useContext } from 'react';
-import { ShoppingCartContext } from '../../context';
 import { AddIcon, AddedIcon } from '../icons';
 import { ProductDetail } from '../product_detail';
 import { CheckoutSideMenu } from '../checkout_side_menu';
+import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 
 export const Card = ({ product }) => {
   const { category, title, price, image, id } = product;
-  const { addToCart, openSidebar, setSidebarChild, cartProducts } = useContext(ShoppingCartContext);
+  const { addToCart, openSidebar, setSidebarChild, cartProducts } = useShoppingCartContext();
 
   const isAdded = cartProducts.some(cartProduct => cartProduct.id === id);
 
@@ -27,14 +26,14 @@ export const Card = ({ product }) => {
   return (
     <article
       onClick={handleShowProduct}
-      className='bg-white cursor-pointer w-full h-64 rounded-xl overflow-hidden'
+      className='bg-white cursor-pointer w-full h-fit rounded-lg overflow-hidden shadow-md'
     >
       <figure className='relative mb-2 w-full h-4/5 overflow-hidden flex justify-center'>
         <span className='absolute z-10 bottom-2 left-2 bg-white/70 rounded-md text-black text-sm font-light px-3 py-0.5'>
           {category}
         </span>
         <img
-          className='object-center object-cover h-full w-full hover:scale-[1.090] transition-transform ease-in-out duration-[.3s]'
+          className='aspect-square marker:object-center object-cover w-full hover:scale-[1.090] transition-transform ease-in-out duration-[.3s]'
           src={image}
           loading="lazy"
           alt={title}
@@ -49,9 +48,9 @@ export const Card = ({ product }) => {
           {!isAdded ? <AddIcon /> : <AddedIcon />}
         </button>
       </figure>
-      <p className='flex justify-between gap-2'>
-        <span className='tex-sm font-light overflow-hidden whitespace-nowrap text-ellipsis'>{title}</span>
+      <p className='flex flex-col justify-between gap-2 px-2 pb-2'>
         <span className='text-lg font-medium'>${price}</span>
+        <span className='tex-sm font-light overflow-hidden whitespace-nowrap text-ellipsis'>{title}</span>
       </p>
     </article>
   );
