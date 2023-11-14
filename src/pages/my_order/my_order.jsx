@@ -1,8 +1,10 @@
 import { CardShoppingCart } from '../../components/card_shopping_cart';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
+import { sumListNums } from '../../utils/sumListItems';
 
 export const MyOrder = () => {
   const { cartProducts, removeToCart } = useShoppingCartContext();
+  const sumTotal = sumListNums(cartProducts.map(product => product.price));
   return (
     <div className="w-[80vw]">
       <header className='mb-8 flex'>
@@ -24,8 +26,28 @@ export const MyOrder = () => {
                   ))
                 }
               </ul>
-              <aside className='w-full h-80 rounded-md border border-gray-400 sticky top-24'>
-
+              <aside className='w-full h-fit rounded-md border bg-white border-gray-200 sticky top-24'>
+                <header className="p-5 border-b border-gray-200">
+                  <h3 className="text-md font-semibold">Resumen de la compra</h3>
+                </header>
+                <section className='p-5'>
+                  <div className='grid gap-2 text-sm pb-5'>
+                    <p className='flex justify-between'>
+                      <span>Products</span><span>{cartProducts.length}</span>
+                    </p>
+                    <p className='flex font-semibold text-base justify-between'>
+                      <span>Total</span><span>$ {sumTotal}</span>
+                    </p>
+                  </div>
+                  <button
+                    // onClick={handleCheckout}
+                    className='
+                    w-full bg-blue-500 p-3 border text-white font-semibold rounded-md
+                    hover:bg-blue-600 active:bg-blue-800  transition-colors'
+                  >
+                    Checkout
+                  </button>
+                </section>
               </aside>
             </div>
           )

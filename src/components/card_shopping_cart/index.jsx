@@ -5,7 +5,7 @@ export const CardShoppingCart = ({ image, title, price, handleClick }) => {
   const [productCount, setProductCount] = useState(1);
   return (
     <li>
-      <article className='flex overflow-hidden shadow-md rounded p-4 items-center justify-between border border-gray-200'>
+      <article className='flex overflow-hidden shadow-md rounded bg-white p-5 items-center justify-between border border-gray-200'>
         <section className="w-[60%] flex gap-6">
           <figure className='w-[80%] max-w-[70px]'>
             <img className='aspect-square h-full object-cover' src={image} alt={title} />
@@ -28,7 +28,7 @@ export const CardShoppingCart = ({ image, title, price, handleClick }) => {
           />
         </section>
         <section className='w-[20%] text-end'>
-          <span className='text-xl font-bold block'>${price}</span>
+          <span className='text-xl font-semibold block'>${price}</span>
         </section>
       </article>
     </li>

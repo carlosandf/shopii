@@ -1,6 +1,6 @@
 export const OrderCard = ({ image, title, price, handleClick }) => {
   return (
-    <article className='grid grid-cols-[1fr_4fr] overflow-hidden shadow-md rounded'>
+    <article className='bg-white grid grid-cols-[1fr_4fr] overflow-hidden shadow-md rounded'>
       <figure>
         <img className='aspect-square h-full object-cover' src={image} alt={title} />
       </figure>

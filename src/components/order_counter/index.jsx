@@ -12,7 +12,7 @@ export const OrderCounter = ({ value, decrement, increment }) => {
 const Input = ({ value }) => {
   return (
     <input
-      className="px-2 py-1 w-10 text-center border-x bg-gray-200"
+      className="px-2 py-1 w-10 text-center text-base"
       type="number"
       min="1"
       value={value}
@@ -24,7 +24,7 @@ const Input = ({ value }) => {
 const Button = ({ value, handleClick, disabled }) => {
   return (
     <button
-      className={`px-2 py-1 w-10 bg-gray-200 ${disabled && 'opacity-70 cursor-not-allowed'}`}
+      className={`px-2 py-1 w-10  ${disabled && 'opacity-60 cursor-not-allowed'}`}
       disabled={disabled}
       onClick={handleClick}
     >

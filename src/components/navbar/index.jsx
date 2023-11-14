@@ -20,7 +20,7 @@ const linksRight = [
 export const Navbar = () => {
   const { cartProducts } = useShoppingCartContext();
   return (
-    <nav className='w-full flex h-16 items-center justify-between gap-2 px-6 py-3 text-sm bg-white font-medium shadow'>
+    <nav className='w-full flex h-16 items-center justify-between gap-2 px-6 py-3 text-sm bg-yellow-300 font-medium shadow'>
       <ul className='flex gap-5 items-center'>
         <li className='text-xl font-extrabold'>
           <Link to='/'>Shopii</Link>

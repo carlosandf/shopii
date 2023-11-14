@@ -25,14 +25,14 @@ export const CheckoutSideMenu = () => {
   };
 
   return (
-    <aside className="p-1 relative top-[100%] right-0 z-50 drop-shadow-2xl overflow-hidden bg-white max-w-sm w-screen max-h-[85dvh]">
-      <header className='flex justify-between p-2'>
+    <aside className="relative top-[100%] p-4 right-0 z-50 drop-shadow-2xl overflow-hidden bg-white max-w-sm w-screen max-h-[85dvh]">
+      <header className='flex justify-between mb-2'>
         <span>Checkout</span>
         <button onClick={closeSidebar} className='p-[1px] rounded-full hover:bg-gray-400/40 transition-colors'>
           <CloseIcon />
         </button>
       </header>
-      <section className='Checkout_menu grid gap-1 pb-1 auto-rows-max overflow-y-auto max-h-[calc(70dvh-60px)] min-h-[5rem]'>
+      <section className='Checkout_menu grid gap-1 auto-rows-max overflow-y-auto max-h-[calc(70dvh-75px)] min-h-[5rem]'>
         {cartProducts.length > 0
           ? (
               cartProducts.map(({ image, title, id, price }) => (
@@ -48,16 +48,16 @@ export const CheckoutSideMenu = () => {
           : <p className='text-center font-light place-self-center'>No hay productos</p>
         }
       </section>
-      <footer className='p-2 shadow-inner grid gap-2'>
-        <p className='flex justify-between text-xl font-bold'>
+      <footer className='shadow-inner grid pt-4 gap-2'>
+        <p className='flex justify-between text-lg font-bold'>
           <span>Total</span>
           <span>${totalPrice}</span>
         </p>
         <button
           onClick={handleCheckout}
           className='
-          w-full bg-black p-2 border border-black text-white font-semibold rounded-sm
-          active:bg-white active:text-black transition-colors'
+          w-full bg-blue-500 p-3 border text-white font-semibold rounded-md
+          hover:bg-blue-600 active:bg-blue-800  transition-colors'
         >
           Checkout
         </button>
