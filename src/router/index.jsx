@@ -2,7 +2,7 @@ import { Switch, Route } from 'wouter';
 import {
   Home,
   Signin,
-  MyOrder,
+  ShoppingCart,
   MyOrders,
   NotFound,
   MyAccount
@@ -14,7 +14,7 @@ export const AppRouter = () => {
       <Route path='/' component={Home}/>
       <Route path="/signin" component={Signin} />
       <Route path='/account' component={MyAccount} />
-      <Route path='/order' component={MyOrder} />
+      <Route path='/cart' component={ShoppingCart} />
       <Route path='/orders/all' component={MyOrders} />
       <Route component={NotFound} />
     </Switch>

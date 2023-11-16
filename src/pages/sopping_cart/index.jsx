@@ -2,14 +2,14 @@ import { CardShoppingCart } from '../../components/card_shopping_cart';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 import { sumListNums } from '../../utils/sumListItems';
 
-export const MyOrder = () => {
+export const ShoppingCart = () => {
   const { cartProducts, removeToCart } = useShoppingCartContext();
   const sumTotal = sumListNums(cartProducts.map(product => product.price));
   return (
     <div className="w-[80vw]">
       <header className='mb-8 flex'>
         <h2 className="text-center text-2xl font-semibold">
-          My Order
+          Shopping cart
         </h2>
       </header>
       {cartProducts.length > 0

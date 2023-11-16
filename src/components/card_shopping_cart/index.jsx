@@ -16,7 +16,7 @@ export const CardShoppingCart = ({ image, title, price, handleClick }) => {
               onClick={handleClick}
               className='text-blue-600 w-fit font-medium text-sm'
             >
-              Eliminar
+              Delete
             </button>
           </section>
         </section>

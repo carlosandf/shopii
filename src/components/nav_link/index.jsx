@@ -1,6 +1,6 @@
 import { Link, useRoute } from 'wouter';
 
-export const NavLink = ({ children, href, className, whenActive }) => {
+export const NavLink = ({ children, href, className, whenActive, handleClick }) => {
   const [isActive] = useRoute(href);
   return (
     <Link
@@ -10,7 +10,8 @@ export const NavLink = ({ children, href, className, whenActive }) => {
         ${isActive && whenActive}
         ${className}
         `
-      }>
+      }
+    >
       {children}
     </Link>
   );

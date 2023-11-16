@@ -1,4 +1,4 @@
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { NavLink } from '..';
 import { CartIcon } from '../icons';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
@@ -18,7 +18,13 @@ const linksRight = [
 ];
 
 export const Navbar = () => {
-  const { cartProducts } = useShoppingCartContext();
+  const { cartProducts, closeSidebar } = useShoppingCartContext();
+  const [, setLocation] = useLocation();
+
+  const handleClick = () => {
+    closeSidebar();
+    setLocation('/cart');
+  };
   return (
     <nav className='w-full flex h-16 items-center justify-between gap-2 px-6 py-3 text-sm bg-yellow-300 font-medium shadow'>
       <ul className='flex gap-5 items-center'>
@@ -51,7 +57,7 @@ export const Navbar = () => {
             </NavLink>
           </li>
         ))}
-        <li className='text-xl relative'>
+        <li className='text-xl relative grid'>
           {
             cartProducts?.length > 0 && (
               <span className='absolute bg-red-500 py-0.5 px-1 text-white text-xs font-bold rounded-full leading-none left-4 bottom-4'>
@@ -59,13 +65,11 @@ export const Navbar = () => {
               </span>
             )
           }
-          <NavLink
-            href='/order'
-            className='text-2xl'
-            whenActive='text-blue-600'
+          <button
+            onClick={handleClick}
           >
-            <CartIcon /> {/* 🛒 */}
-          </NavLink>
+            <CartIcon />
+          </button>
         </li>
       </ul>
     </nav>
