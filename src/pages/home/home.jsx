@@ -21,6 +21,7 @@ export const Home = () => {
           <Card
             key={product.id}
             product={{
+              description: product.description,
               category: product.category.name,
               title: product.title,
               price: product.price,
