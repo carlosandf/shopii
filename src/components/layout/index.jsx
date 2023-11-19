@@ -9,8 +9,8 @@ export const Layout = ({ children }) => {
         <Navbar />
         <Sidebar />
       </header>
-      <main className='mt-16 relative grid gap-1 min-h-screen grid-cols-[auto_auto_auto] items-start p-8'>
-        <div className='Layout-main col-[2/3] grid justify-items-center rounded-s-lg h-[inherit]'>
+      <main className='mt-16 relative grid gap-1 min-h-screen items-start p-8'>
+        <div className='Layout-main grid justify-items-center rounded-s-lg h-[inherit]'>
           {children}
         </div>
       </main>
