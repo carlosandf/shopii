@@ -7,6 +7,7 @@ import {
   NotFound,
   MyAccount
 } from '../pages';
+import { MyOrder } from '../pages/my_order';
 
 export const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ export const AppRouter = () => {
       <Route path='/account' component={MyAccount} />
       <Route path='/cart' component={ShoppingCart} />
       <Route path='/orders/all' component={MyOrders} />
+      <Route path="/orders/:id" component={MyOrder} />
       <Route component={NotFound} />
     </Switch>
   );
