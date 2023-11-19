@@ -16,6 +16,7 @@ export const CheckoutSideMenu = () => {
     const orderToAdd = {
       products: cartProducts,
       date: new Date(),
+      id: crypto.randomUUID(),
       totalPrice
     };
     setOrders(prevState => [orderToAdd, ...prevState]);

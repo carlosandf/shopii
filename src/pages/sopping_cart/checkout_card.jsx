@@ -12,6 +12,7 @@ export const CheckoutCard = ({ cartProducts }) => {
     const orderToAdd = {
       products: cartProducts,
       date: new Date(),
+      id: crypto.randomUUID(),
       sumTotal
     };
     setOrders(prevState => [orderToAdd, ...prevState]);
