@@ -1,10 +1,12 @@
-import { useLocation } from 'wouter';
+import { useLocation, useParams } from 'wouter';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 
 export const MyOrder = () => {
   const { orders } = useShoppingCartContext();
   const [path] = useLocation();
   const orderId = path.split('/').at(2);
+
+  console.log({ params: useParams() });
 
   const currentOrder = orders.find(order => order.id === orderId);
 

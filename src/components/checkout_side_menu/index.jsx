@@ -37,13 +37,14 @@ export const CheckoutSideMenu = () => {
         {cartProducts.length > 0
           ? (
               cartProducts.map(({ image, title, id, price }) => (
-                <OrderCard
-                  key={`checkout_${id}`}
-                  handleClick={() => removeToCart({ id })}
-                  image={image}
-                  title={title}
-                  price={price}
-                />
+                <div className='h-24' key={`checkout_${id}`}>
+                  <OrderCard
+                    handleClick={() => removeToCart({ id })}
+                    image={image}
+                    title={title}
+                    price={price}
+                  />
+                </div>
               ))
             )
           : <p className='text-center font-light place-self-center'>No hay productos</p>

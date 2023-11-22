@@ -5,12 +5,12 @@ import './layout.css';
 export const Layout = ({ children }) => {
   return (
     <>
-      <header className='fixed z-20 w-full top-0 max-w-screen-2xl'>
+      <header className='fixed z-20 w-full top-0 px-6 py-3 bg-yellow-300 shadow'>
         <Navbar />
         <Sidebar />
       </header>
-      <main className='mt-16 relative grid gap-1 min-h-screen items-start p-8'>
-        <div className='Layout-main grid justify-items-center rounded-s-lg h-[inherit]'>
+      <main className='mt-16 relative grid gap-1 justify-center min-h-screen items-start p-8'>
+        <div className='Layout-main grid max-w-screen-xl justify-items-center rounded-s-lg h-[inherit]'>
           {children}
         </div>
       </main>
