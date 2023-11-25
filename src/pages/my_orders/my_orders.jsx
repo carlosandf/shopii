@@ -7,11 +7,11 @@ import { sumListNums } from '../../utils/sumListItems.js';
 export const MyOrders = () => {
   const { orders } = useShoppingCartContext();
   return (
-    <section>
+    <section className="w-full max-w-xl">
       <header className="mb-8">
         <h3 className='text-2xl font-semibold'>My orders</h3>
       </header>
-      <div className=' w-[60vw]  grid gap-2'>
+      <div className='grid gap-2'>
         {
           orders.map(order => (
             <article key={order.date}>

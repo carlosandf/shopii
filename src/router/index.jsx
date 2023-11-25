@@ -17,7 +17,9 @@ export const AppRouter = () => {
       <Route path='/account' component={MyAccount} />
       <Route path='/cart' component={ShoppingCart} />
       <Route path='/orders/all' component={MyOrders} />
-      <Route path="/orders/:id" component={MyOrder} />
+      <Route path="/orders/:id">
+        {(params) => <MyOrder id={params.id} />}
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );
