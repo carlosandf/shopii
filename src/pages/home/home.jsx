@@ -1,15 +1,8 @@
-import { useEffect, useState } from 'react';
-import { ProductsApi } from '../../services/products.js';
 import { Card } from '../../components';
+import { useShoppingCartContext } from '../../hooks/useShoppingCartContext.js';
 
-const productsService = new ProductsApi();
 export const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    productsService.getAll()
-      .then(res => setProducts([...res]));
-  }, []);
+  const { products } = useShoppingCartContext();
 
   return (
     <>

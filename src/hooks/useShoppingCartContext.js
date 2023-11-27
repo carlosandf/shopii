@@ -7,6 +7,7 @@ import { ShoppingCartContext } from '../context/shopping_cart_context.jsx';
  *  orders: object[],
  *  sidebarChild: ReactElement | null,
  *  cartProducts: [],
+ *  products: [],
  *  isSidebarOpen: boolean,
  *  addToCart: ({ product }) => void,
  *  setOrders: () => void,
