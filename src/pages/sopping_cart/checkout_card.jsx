@@ -23,7 +23,7 @@ export const CheckoutCard = ({ cartProducts }) => {
   return (
     <aside className='w-full h-fit rounded-md border bg-white border-gray-200 sticky top-24'>
       <header className="p-5 border-b border-gray-200">
-        <h3 className="text-md font-semibold">Resumen de la compra</h3>
+        <h3 className="text-md font-semibold">Purchase summary</h3>
       </header>
       <section className='p-5'>
         <div className='grid gap-2 text-sm pb-5'>
