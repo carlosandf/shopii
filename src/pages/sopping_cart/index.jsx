@@ -14,7 +14,7 @@ export const ShoppingCart = () => {
       {cartProducts.length > 0
         ? (
             <div className="grid grid-cols-[1fr_320px] gap-8">
-              <ul className='gap-2 flex flex-col'>
+              <ul className='gap-2 grid'>
                 {
                   cartProducts.map(({ image, title, id, price }) => (
                     <CardShoppingCart
