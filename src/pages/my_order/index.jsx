@@ -4,8 +4,6 @@ import { OrderItem } from './order_item';
 export const MyOrder = ({ id: orderId }) => {
   const { orders } = useShoppingCartContext();
 
-  console.log(orderId);
-
   const currentOrder = orders.find(order => order.id === orderId);
 
   return (
@@ -18,7 +16,7 @@ export const MyOrder = ({ id: orderId }) => {
       {currentOrder?.products.length > 0
         ? (
             <div className="w-full">
-              <ul className='gap-2 flex flex-col'>
+              <ul className='gap-2 grid'>
                 {
                   currentOrder?.products.map(({ image, title, id, price }) => (
                     <OrderItem
