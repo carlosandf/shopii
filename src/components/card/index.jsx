@@ -2,6 +2,7 @@ import { AddIcon, AddedIcon } from '../icons';
 import { ProductDetail } from '../product_detail';
 import { CheckoutSideMenu } from '../checkout_side_menu';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
+import { Image } from '../image';
 
 export const Card = ({ product }) => {
   const { category, title, price, image, id } = product;
@@ -32,10 +33,9 @@ export const Card = ({ product }) => {
         <span className='absolute z-10 bottom-2 left-2 bg-white/70 rounded-md text-black text-sm font-light px-3 py-0.5'>
           {category}
         </span>
-        <img
-          className='aspect-square marker:object-center object-cover w-full hover:scale-[1.090] transition-transform ease-in-out duration-[.3s]'
+        <Image
+          className='bg-gray-200 aspect-square marker:object-center object-cover w-full hover:scale-[1.090] transition-transform ease-in-out duration-[.3s]'
           src={image}
-          loading="lazy"
           alt={title}
         />
         <button

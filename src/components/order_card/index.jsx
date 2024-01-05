@@ -1,8 +1,10 @@
+import { Image } from '../image';
+
 export const OrderCard = ({ image, title, price, handleClick }) => {
   return (
     <article className='bg-white h-fit grid grid-cols-[1fr_4fr] overflow-hidden shadow-md rounded'>
       <figure className="aspect-square h-full">
-        <img className='aspect-square h-full object-cover' src={image} alt={title} />
+        <Image className='bg-gray-200 aspect-square h-full object-cover' src={image} alt={title} />
       </figure>
       <section className='flex flex-col justify-between p-2'>
         <p className='text-lg font-light line-clamp-2'>{title}</p>
