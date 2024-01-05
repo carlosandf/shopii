@@ -6,7 +6,7 @@ export const CardShoppingCart = ({ image, title, price, handleClick }) => {
   const [productCount, setProductCount] = useState(1);
   return (
     <li>
-      <article className='flex overflow-hidden shadow-md rounded bg-white p-5 items-center justify-between border border-gray-200'>
+      <article className='flex gap-2 overflow-hidden shadow-md rounded bg-white p-5 items-center justify-between border border-gray-200'>
         <section className="w-[60%] flex gap-6">
           <figure className='w-[80%] max-w-[70px]'>
             <Image className='bg-gray-200 aspect-square h-full object-cover' src={image} alt={title} />
