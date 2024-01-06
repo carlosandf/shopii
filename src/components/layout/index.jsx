@@ -9,7 +9,7 @@ export const Layout = ({ children }) => {
         <Navbar />
         <Sidebar />
       </header>
-      <main className='mt-4 relative flex gap-1 justify-center min-h-screen items-start p-8'>
+      <main className='relative flex gap-1 justify-center min-h-screen items-start p-8'>
         <div className='Layout-main grid w-full max-w-screen-xl justify-items-center rounded-s-lg h-[inherit]'>
           {children}
         </div>
