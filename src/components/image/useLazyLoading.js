@@ -8,15 +8,18 @@ const loadImage = (img, callback = null) => {
     if (typeof callback === 'function') callback(img);
   };
   img.onerror = () => {
+    img.src = defaultLoadImage;
+
     if (!navigator.onLine) {
+      const src = img.src;
       const interval = setInterval(() => {
         if (navigator.onLine) {
-          img.src = img.src;
+          img.src = src;
           clearInterval(interval);
         }
-      }, 5000)
+      }, 5000);
     }
-  }
+  };
 };
 
 export const useLazyLoading = ({ src, onLazyLoad }) => {
