@@ -3,14 +3,40 @@ import { ProductsApi } from '../services/products.js';
 
 const productsService = new ProductsApi();
 export function useProducts () {
+  const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const filterByTitle = (query, productsBase) => {
+    const filteredProducts = productsBase.filter(
+      product => product.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    setProducts(filteredProducts);
+  };
+  const filterByCategory = (category, productsBase) => {
+    if (category) {
+      const filteredProducts = productsBase.filter(
+        product => product.category.name.toLowerCase().includes(category.toLowerCase())
+      );
+      setProducts(filteredProducts);
+      return;
+    }
+
+    setProducts([...allProducts]);
+  };
 
   useEffect(() => {
     productsService.getAll()
-      .then(res => setProducts([...res]));
+      .then(res => {
+        setAllProducts([...res]);
+        setProducts([...res]);
+      });
   }, []);
 
   return {
-    products
+    products,
+    allProducts,
+    filterByTitle,
+    filterByCategory
   };
 }

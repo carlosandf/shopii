@@ -7,9 +7,10 @@ export const ShoppingCartContext = createContext();
 
 export const ShoppingCartProvider = ({ children }) => {
   const { cartProducts, addToCart, removeToCart, clearShoppingCart } = useShoppingCart();
-  const { products } = useProducts();
+  const { products, filterByTitle, allProducts, filterByCategory } = useProducts();
 
   const [orders, setOrders] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Show sidebar
   const {
@@ -28,13 +29,18 @@ export const ShoppingCartProvider = ({ children }) => {
         cartProducts,
         isSidebarOpen,
         products,
+        allProducts,
+        searchQuery,
         addToCart,
         setOrders,
         setSidebarChild,
         removeToCart,
         closeSidebar,
         openSidebar,
-        clearShoppingCart
+        clearShoppingCart,
+        setSearchQuery,
+        filterByTitle,
+        filterByCategory
       }}
     >
       {children}

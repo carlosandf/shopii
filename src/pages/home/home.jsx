@@ -1,20 +1,34 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Card } from '../../components/index.js';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext.js';
 
-export const Home = () => {
-  const { products } = useShoppingCartContext();
+export const Home = ({ category = null }) => {
+  const {
+    products,
+    searchQuery,
+    allProducts,
+    filterByTitle,
+    setSearchQuery,
+    filterByCategory
+  } = useShoppingCartContext();
 
   const handleChange = (e) => {
-    console.log(e.target.value)
-  }
+    setSearchQuery(e.target.value);
+    filterByTitle(e.target.value, allProducts);
+  };
+
+  useEffect(() => {
+    filterByCategory(category, allProducts);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category, allProducts]);
 
   return (
-    <div className='grid gap-6'>
+    <div className='grid gap-6 w-full'>
       <input
         className='m-auto w-full max-w-lg px-4 py-2 shadow rounded-lg outline-gray-300'
         placeholder='Search a product'
         type="text"
+        value={searchQuery}
         onChange={handleChange}
       />
       <section
