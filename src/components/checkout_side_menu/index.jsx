@@ -57,9 +57,12 @@ export const CheckoutSideMenu = () => {
         </p>
         <button
           onClick={handleCheckout}
-          className='
-          w-full bg-blue-500 p-3 border text-white font-semibold rounded-md
-          hover:bg-blue-600 active:bg-blue-800  transition-colors'
+          disabled={cartProducts.length === 0}
+          className={`
+            w-full bg-blue-500 p-3 border text-white font-semibold rounded-md
+            hover:bg-blue-600 active:bg-blue-800 transition-colors
+            disabled:cursor-no-drop disabled:bg-blue-300`
+          }
         >
           Checkout
         </button>
