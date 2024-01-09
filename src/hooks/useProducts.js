@@ -13,16 +13,18 @@ export function useProducts () {
 
     setProducts(filteredProducts);
   };
+
   const filterByCategory = (category, productsBase) => {
     if (category) {
       const filteredProducts = productsBase.filter(
         product => product.category.name.toLowerCase().includes(category.toLowerCase())
       );
       setProducts(filteredProducts);
-      return;
+      return filteredProducts;
     }
 
     setProducts([...allProducts]);
+    return allProducts;
   };
 
   useEffect(() => {

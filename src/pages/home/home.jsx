@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Card } from '../../components/index.js';
 import { useShoppingCartContext } from '../../hooks/useShoppingCartContext.js';
 
 export const Home = ({ category = null }) => {
+  const [currentProducts, setCurrentProducts] = useState([]);
   const {
     products,
     searchQuery,
@@ -14,12 +15,17 @@ export const Home = ({ category = null }) => {
 
   const handleChange = (e) => {
     setSearchQuery(e.target.value);
-    filterByTitle(e.target.value, allProducts);
+    filterByTitle(e.target.value, currentProducts);
   };
 
   useEffect(() => {
-    filterByCategory(category, allProducts);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    const filterdProducts = filterByCategory(category, allProducts);
+    setCurrentProducts([...filterdProducts]);
+
+    return () => {
+      setSearchQuery('');
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category, allProducts]);
 
   return (
@@ -31,24 +37,30 @@ export const Home = ({ category = null }) => {
         value={searchQuery}
         onChange={handleChange}
       />
-      <section
-        id='home_product_container'
-        className='grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 w-full justify-items-center'
-      >
-        {products?.map(product => (
-          <Card
-            key={product.id}
-            product={{
-              description: product.description,
-              category: product.category.name,
-              title: product.title,
-              price: product.price,
-              image: product.images[0],
-              id: product.id
-            }}
-          />
-        ))}
-      </section>
+      {
+        products.length < 1
+          ? <p className='text-center'>No Products Found :(</p>
+          : (
+              <section
+                id='home_product_container'
+                className='grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 w-full justify-items-center'
+              >
+                {products?.map(product => (
+                  <Card
+                    key={product.id}
+                    product={{
+                      description: product.description,
+                      category: product.category.name,
+                      title: product.title,
+                      price: product.price,
+                      image: product.images[0],
+                      id: product.id
+                    }}
+                  />
+                ))}
+              </section>
+            )
+      }
     </div>
   );
 };
