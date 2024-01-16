@@ -11,7 +11,7 @@ export const ProductDetail = ({ image, title, description, price }) => {
         <button onClick={closeSidebar} className='absolute right-1 top-1 p-[1px] rounded-full bg-white/60'>
           <CloseIcon />
         </button>
-        <img className='aspect-square object-cover object-center' src={image} alt={title} />
+        <img className='aspect-square object-contain object-center' src={image} alt={title} />
       </figure>
       <section className='p-3'>
         <p className='flex flex-col gap-1'>

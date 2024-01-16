@@ -33,7 +33,7 @@ export const CheckoutSideMenu = () => {
           <CloseIcon />
         </button>
       </header>
-      <section className='Checkout_menu grid gap-1 auto-rows-max overflow-y-auto max-h-[calc(70dvh-75px)] min-h-[5rem]'>
+      <section className='Checkout_menu grid auto-rows-max overflow-y-auto max-h-[calc(70dvh-75px)] min-h-[5rem] border-t border-gray-300'>
         {cartProducts.length > 0
           ? (
               cartProducts.map(({ image, title, id, price }) => (

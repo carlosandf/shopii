@@ -5,9 +5,9 @@ import { useShoppingCartContext } from '../../hooks/useShoppingCartContext';
 
 const linksLeft = [
   { path: '/', label: 'All' },
-  { path: '/clothes', label: 'Clothes' },
+  { path: '/clothing', label: 'Clothes' },
   { path: '/electronics', label: 'Electronics' },
-  { path: '/furnitures', label: 'Furnitures' },
+  { path: '/jewelery', label: 'Jewelery' },
   { path: '/toys', label: 'Toys' }
 ];
 
