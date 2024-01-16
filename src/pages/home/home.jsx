@@ -50,10 +50,10 @@ export const Home = ({ category = null }) => {
                     key={product.id}
                     product={{
                       description: product.description,
-                      category: product.category.name,
+                      category: product.category,
                       title: product.title,
                       price: product.price,
-                      image: product.images[0],
+                      image: product.image,
                       id: product.id
                     }}
                   />

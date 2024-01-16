@@ -17,7 +17,7 @@ export function useProducts () {
   const filterByCategory = (category, productsBase) => {
     if (category) {
       const filteredProducts = productsBase.filter(
-        product => product.category.name.toLowerCase().includes(category.toLowerCase())
+        product => product.category.toLowerCase().includes(category.toLowerCase())
       );
       setProducts(filteredProducts);
       return filteredProducts;
